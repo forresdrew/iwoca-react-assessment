@@ -6,20 +6,28 @@
   "scripts": {
     "FE-start": "vite",
     "FE-build": "tsc && vite build",
-    "test": "vitest",
+    "test": "jest",
     "BE-start": "ts-node --esm ./json-server/index.ts",
     "start": "concurrently --kill-others \"npm:BE-start\" \"npm:FE-start\""
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(ts|tsx|js|jsx)$": "ts-jest"
+    }
   },
   "dependencies": {
     "@faker-js/faker": "8.0.2",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "14.0.0",
     "@testing-library/user-event": "14.4.3",
+    "axios": "^1.7.7",
     "classnames": "2.3.2",
+    "jest": "^29.7.0",
     "json-server": "0.17.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "7.45.1",
+    "ts-jest": "^29.2.5",
     "ts-node": "^10.9.1",
     "typescript": "5.1.6"
   },

@@ -1,14 +1,18 @@
-import React from "react";
+import { FunctionComponent } from "react";
 import SingleApplication from "./SingleApplication";
-import { getSingleApplicationFixture } from "./__fixtures__/applications.fixture";
 import styles from "./Applications.module.css";
+import Application from "./models/Application";
 
-const Applications = () => {
-  const applications = getSingleApplicationFixture;
+type ApplicationsProps = {
+  applications: Application[];
+};
 
+const Applications: FunctionComponent<ApplicationsProps> = ({ applications }) => {
   return (
     <div className={styles.Applications}>
-      <SingleApplication application={applications[0]} />
+      {applications?.map(application => {
+        return <SingleApplication key={application.id} application={application} />;
+      })}
     </div>
   );
 };
